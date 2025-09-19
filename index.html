@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Semantic CSS</title>
+  <link rel="stylesheet" href="semantic.css">
+</head>
+<body>
+  <header>
+    <h1>Semantic CSS</h1>
+    <nav>
+      <a href="#">Home</a>
+      <ul>
+        <li><a href="#forms">Forms</a></li>
+        <li><a href="#media">Media</a></li>
+        <li><a href="#tables">Tables</a></li>
+        <li><a href="#interactive">Interactive</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <article>
+      <section id="text">
+        <h2>Text Content</h2>
+        <p>This is a <strong>strong</strong> and <em>emphasized</em> paragraph with <mark>highlighted text</mark> and a <abbr title="Hypertext Markup Language">HTML</abbr> abbreviation.</p>
+        <blockquote cite="https://developer.mozilla.org/">A famous reference from MDN.</blockquote>
+        <q cite="https://example.com">This is a short inline quotation.</q>
+        <p>Here is <code>inline code</code>, <samp>sample output</samp>, and <kbd>Ctrl+C</kbd> for keyboard input.</p>
+        <pre><code>function hello() { return "Hello"; }</code></pre>
+        <address>Contact: <a href="mailto:test@example.com">Email Us</a></address>
+        <time datetime="2025-09-19">September 19, 2025</time>
+        <br>
+        <ruby>漢 <rt>Kan</rt></ruby>
+        <p>Progress: <progress value="70" max="100"></progress></p>
+        <p>Meter: <meter value="0.6">60%</meter></p>
+      </section>
+
+      <section id="forms">
+        <h2>Forms</h2>
+        <form>
+          <fieldset>
+            <legend>Example Form</legend>
+            <label for="text">Text: <input type="text" id="text" name="text"></label><br>
+            <label for="email">Email: <input type="email" id="email" name="email"></label><br>
+            <label for="color">Color: <input type="color" id="color"></label><br>
+            <label for="range">Range: <input type="range" id="range" min="0" max="10"></label><br>
+            <label for="file">File: <input type="file" id="file"></label><br>
+            <label for="checkbox">Checkbox: <input type="checkbox" id="checkbox"></label>
+            <label for="radio">Radio: <input type="radio" id="radio"></label><br>
+            <label for="date">Date: <input type="date" id="date"></label><br>
+            <select>
+              <optgroup label="Group 1">
+                <option>Option 1</option>
+                <option>Option 2</option>
+              </optgroup>
+            </select>
+            <textarea placeholder="Write here..."></textarea><br>
+            <button type="submit">Submit</button>
+          </fieldset>
+        </form>
+        <output name="result">42</output>
+      </section>
+
+      <section id="media">
+        <h2>Media Content</h2>
+        <figure>
+          <img src="https://via.placeholder.com/150" alt="Placeholder image">
+          <figcaption>An example image with caption.</figcaption>
+        </figure>
+        <audio controls>
+          <source src="sample.mp3" type="audio/mpeg">
+          Your browser does not support audio.
+        </audio>
+        <video controls width="250">
+          <source src="sample.mp4" type="video/mp4">
+          Your browser does not support video.
+        </video>
+        <canvas id="myCanvas" width="100" height="100"></canvas>
+        <svg width="100" height="100">
+          <circle cx="50" cy="50" r="40" stroke="black" fill="lightblue" />
+        </svg>
+        <iframe src="https://example.com" title="Example iframe"></iframe>
+      </section>
+
+      <section id="tables">
+        <h2>Tables</h2>
+        <table>
+          <caption>Sample Table</caption>
+          <colgroup>
+            <col span="1" style="background-color:lightgray">
+            <col>
+          </colgroup>
+          <thead>
+            <tr><th>Header 1</th><th>Header 2</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Data 1</td><td>Data 2</td></tr>
+          </tbody>
+          <tfoot>
+            <tr><td colspan="2">Footer</td></tr>
+          </tfoot>
+        </table>
+      </section>
+
+      <section id="interactive">
+        <h2>Interactive & Semantic</h2>
+        <details>
+          <summary>Click to expand</summary>
+          <p>Hidden content revealed!</p>
+        </details>
+        <dialog open>This is a dialog box</dialog>
+        <template id="myTemplate"><p>Template Content</p></template>
+        <p>Custom interactive content below:</p>
+        <script>
+          const tmpl = document.getElementById("myTemplate");
+          document.body.appendChild(tmpl.content.cloneNode(true));
+        </script>
+      </section>
+    </article>
+  </main>
+
+  <aside>
+    <p>This is an aside section for related content.</p>
+  </aside>
+
+  <footer>
+    <p>Semantic CSS</p>
+  </footer>
+</body>
+</html>
