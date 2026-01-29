@@ -1,12 +1,94 @@
 :root {
-    --primary-color: magenta;
-    --secondary-color: cyan;
-    --success-color: green;
-    --info-color: blue;
-    --warning-color: yellow;
-    --danger-color: red;
-    --light-color: #f4f4f4;
-    --dark-color: #222222;
+    --palette-light-primary: magenta;
+    --palette-light-secondary: lightblue;
+    --palette-light-success: green;
+    --palette-light-info: blue;
+    --palette-light-warning: yellow;
+    --palette-light-danger: red;
+    --palette-light-light-color: #f4f4f4;
+    --palette-light-dark-color: #222222;
+    --palette-light-gray-color: #888888;
+    --palette-light-white-color: #ffffff;
+
+    --palette-dark-primary: magenta;
+    --palette-dark-secondary: lightblue;
+    --palette-dark-success: #8aff80;
+    --palette-dark-info: #8ab4ff;
+    --palette-dark-warning: #ffb86c;
+    --palette-dark-danger: #ff5555;
+    --palette-dark-light-color: #121212;
+    --palette-dark-dark-color: #e6e6e6;
+    --palette-dark-gray-color: #888888;
+    --palette-dark-white-color: #ffffff;
+
+    --border-radius: 4px;
+    --transition: 200ms ease;
+}
+
+:root {
+    --primary-color: var(--palette-light-primary);
+    --secondary-color: var(--palette-light-secondary);
+    --success-color: var(--palette-light-success);
+    --info-color: var(--palette-light-info);
+    --warning-color: var(--palette-light-warning);
+    --danger-color: var(--palette-light-danger);
+    --light-color: var(--palette-light-light-color);
+    --dark-color: var(--palette-light-dark-color);
+    --gray-color: var(--palette-light-gray-color);
+    --white-color: var(--palette-light-white-color);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme]) {
+        --success-color: var(--palette-dark-success);
+        --info-color: var(--palette-dark-info);
+        --warning-color: var(--palette-dark-warning);
+        --danger-color: var(--palette-dark-danger);
+        --light-color: var(--palette-dark-light-color);
+        --dark-color: var(--palette-dark-dark-color);
+    }
+}
+
+:root[data-theme="dark"] {
+    --success-color: var(--palette-dark-success);
+    --info-color: var(--palette-dark-info);
+    --warning-color: var(--palette-dark-warning);
+    --danger-color: var(--palette-dark-danger);
+    --light-color: var(--palette-dark-light-color);
+    --dark-color: var(--palette-dark-dark-color);
+    background-color: var(--light-color);
+    color: var(--dark-color);
+}
+
+:root[data-theme="light"] {
+    --success-color: var(--palette-light-success);
+    --info-color: var(--palette-light-info);
+    --warning-color: var(--palette-light-warning);
+    --danger-color: var(--palette-light-danger);
+    --light-color: var(--palette-light-light-color);
+    --dark-color: var(--palette-light-dark-color);
+    background-color: var(--light-color);
+    color: var(--dark-color);
+}
+
+.success {
+    color: var(--success-color);
+}
+
+.danger {
+    color: var(--danger-color);
+}
+
+.warning {
+    color: var(--warning-color);
+}
+
+.info {
+    color: var(--info-color);
+}
+
+* {
+    transition: background-color 200ms ease, color 200ms ease;
 }
 
 html {
@@ -34,7 +116,7 @@ footer {
 
 h1, h2, h3, h4, h5, h6 {
     margin: 0;
-    padding: 0.5rem 0;
+    padding: 0.5rem;
 }
 
 nav {
@@ -65,4 +147,103 @@ a:link, a:visited {
 
 a:hover, a:active {
     color: var(--primary-color);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+}
+
+thead {
+    color: var(--dark-color);
+    text-align: left;
+}
+
+tr {
+    border-bottom: 1px solid var(--dark-color);
+}
+
+td, th, tr {
+    padding: 0.75rem;
+}
+
+dialog[open] {
+    position: fixed;
+    width: calc(100vw - 4rem);
+    height: calc(100vh - 4rem);
+    border: none;
+    padding: 2rem;
+    color: var(--dark-color);
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+}
+
+
+input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--primary-color);
+}
+
+button {
+    border: none;
+    border-radius: var(--border-radius);
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+button:hover {
+    filter: brightness(1.1);
+}
+
+fieldset {
+    display: flex;
+    border: none;
+    padding: 0;
+    margin: 1rem 0;
+}
+
+fieldset > input {
+    display: inline-flex;
+    flex: 1;
+    border: none;
+}
+
+fieldset > input:first-child {
+    border-top-left-radius: var(--border-radius);
+    border-bottom-left-radius: var(--border-radius);
+}
+
+fieldset > input:last-child {
+    border-top-right-radius: var(--border-radius);
+    border-bottom-right-radius: var(--border-radius);
+}
+
+fieldset > button {
+    border: none;
+    background-color: var(--primary-color);
+    padding: 0 1rem;
+    cursor: pointer;
+}
+
+fieldset > button:last-child {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: var(--border-radius);
+    border-bottom-right-radius: var(--border-radius);
+}
+
+fieldset > button:first-child {
+    border-top-left-radius: var(--border-radius);
+    border-bottom-left-radius: var(--border-radius);
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+progress {
+    width: 100%;
 }
