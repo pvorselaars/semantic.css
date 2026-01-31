@@ -158,10 +158,11 @@ table {
 thead {
     color: var(--dark-color);
     text-align: left;
+    border-bottom: 1px solid var(--dark-color);
 }
 
 tr {
-    border-bottom: 1px solid var(--dark-color);
+    border-bottom: 1px solid var(--gray-color);
 }
 
 td, th, tr {
