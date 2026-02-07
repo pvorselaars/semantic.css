@@ -1,24 +1,26 @@
 :root {
-    --palette-light-primary: magenta;
-    --palette-light-secondary: lightblue;
-    --palette-light-success: green;
-    --palette-light-info: blue;
-    --palette-light-warning: yellow;
-    --palette-light-danger: red;
-    --palette-light-light-color: #f4f4f4;
-    --palette-light-dark-color: #222222;
-    --palette-light-gray-color: #888888;
+    /* One Light Scheme */
+    --palette-light-primary: #4078f2;
+    --palette-light-secondary: #a626a4;
+    --palette-light-success: #50a14f;
+    --palette-light-info: #0184bc;
+    --palette-light-warning: #986801;
+    --palette-light-danger: #e45649;
+    --palette-light-light-color: #fafafa;
+    --palette-light-dark-color: #383a42;
+    --palette-light-gray-color: #a0a1a7;
     --palette-light-white-color: #ffffff;
 
-    --palette-dark-primary: magenta;
-    --palette-dark-secondary: lightblue;
-    --palette-dark-success: #8aff80;
-    --palette-dark-info: #8ab4ff;
-    --palette-dark-warning: #ffb86c;
-    --palette-dark-danger: #ff5555;
-    --palette-dark-light-color: #121212;
-    --palette-dark-dark-color: #e6e6e6;
-    --palette-dark-gray-color: #888888;
+    /* One Dark Scheme */
+    --palette-dark-primary: #61afef;
+    --palette-dark-secondary: #c678dd;
+    --palette-dark-success: #98c379;
+    --palette-dark-info: #56b6c2;
+    --palette-dark-warning: #e5c07b;
+    --palette-dark-danger: #e06c75;
+    --palette-dark-light-color: #282c34;
+    --palette-dark-dark-color: #abb2bf;
+    --palette-dark-gray-color: #5c6370;
     --palette-dark-white-color: #ffffff;
 
     --border-radius: 4px;
@@ -122,11 +124,17 @@ nav {
     display: flex;
     padding: 1rem;
     align-items: center;
+    justify-content: flex-end;
+    gap: 1rem;
 }
 
 nav > a {
     font-weight: bold;
     text-decoration: none;
+}
+
+nav a:first-child {
+    margin-right: auto;
 }
 
 nav ul {
@@ -193,10 +201,12 @@ input, textarea, button, select {
     padding: 0.5rem;
 }
 
-input:focus {
+input:focus, select:focus, textarea:focus {
     outline: none;
+    border-color: var(--primary-color);
     box-shadow: 0 0 0 2px var(--primary-color);
 }
+
 
 button {
     border: none;
@@ -215,13 +225,26 @@ fieldset {
     display: flex;
     border: none;
     padding: 0;
-    margin: 1rem 0;
+    margin: 1rem;
+    height: 2.5rem;
 }
 
 fieldset > input {
     display: inline-flex;
     flex: 1;
     border: none;
+}
+
+fieldset > input[type="search"] {
+    padding: 0.5rem 1rem;
+    margin: 0;
+}
+
+fieldset > input[type="search"]:first-child {
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
 }
 
 fieldset > input:first-child {
@@ -253,6 +276,20 @@ fieldset > button:first-child {
     border-bottom-left-radius: var(--border-radius);
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
+}
+
+fieldset > select {
+    display: inline-flex;
+    border: none;
+    height: auto;
+}
+
+fieldset > select:last-child {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    appearance: none;
 }
 
 progress {
