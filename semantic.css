@@ -201,6 +201,10 @@ input, textarea, button, select {
     padding: 0.5rem;
 }
 
+input[type="datetime-local"] {
+    font-family: inherit;
+}
+
 input:focus, select:focus, textarea:focus {
     outline: none;
     border-color: var(--primary-color);
@@ -233,6 +237,17 @@ fieldset > input {
     display: inline-flex;
     flex: 1;
     border: none;
+}
+
+fieldset > input[type="datetime-local"] {
+    flex: none;
+}
+
+fieldset > input[type="datetime-local"]:last-child {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
 }
 
 fieldset > input[type="search"] {
