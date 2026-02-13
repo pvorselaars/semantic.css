@@ -160,6 +160,7 @@ table {
     border-collapse: collapse;
     width: calc(100% - 2rem);
     margin: 1rem;
+    table-layout: fixed;
 }
 
 thead {
